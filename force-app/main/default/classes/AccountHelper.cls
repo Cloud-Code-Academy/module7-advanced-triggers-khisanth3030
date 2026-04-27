@@ -36,8 +36,6 @@ public with sharing class AccountHelper extends TriggerHandler {
     public override void afterInsert() {
         createDefaultContact(Trigger.new);
     }
-
-
     public void setTypeProspect(List<Account> accounts){
             for(Account acc : accounts){
                 if(acc.Type==null){
@@ -45,8 +43,6 @@ public with sharing class AccountHelper extends TriggerHandler {
                 }
             }
         }
-    
-
     public void addressCopy(List<Account> accounts){
         for (Account acc : accounts) {
             if (acc.ShippingStreet != null) {acc.BillingStreet = acc.ShippingStreet;}
@@ -56,7 +52,6 @@ public with sharing class AccountHelper extends TriggerHandler {
             if (acc.ShippingCountry != null) {acc.BillingCountry = acc.ShippingCountry;}
         }        
     }
-
     public void setRating (List<Account> accounts) {
 
         for (Account acc : accounts) {   
@@ -65,7 +60,6 @@ public with sharing class AccountHelper extends TriggerHandler {
             }   
         }             
     }
-
     public void createDefaultContact (List<Account> accounts) {
         List<Contact> contacts = new List<Contact>();   
         for(Account acc : accounts){
@@ -77,7 +71,5 @@ public with sharing class AccountHelper extends TriggerHandler {
         }
         insert contacts; 
     }
-
-
 }
 
